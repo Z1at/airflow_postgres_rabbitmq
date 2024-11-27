@@ -1,0 +1,16 @@
+[2024-11-10T20:59:31.496+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: python_broker.get_data manual__2024-11-10T20:56:29.467557+00:00 [queued]>
+[2024-11-10T20:59:31.503+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: python_broker.get_data manual__2024-11-10T20:56:29.467557+00:00 [queued]>
+[2024-11-10T20:59:31.504+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-10T20:59:31.515+0000] {taskinstance.py:2217} INFO - Executing <Task(_PythonDecoratedOperator): get_data> on 2024-11-10 20:56:29.467557+00:00
+[2024-11-10T20:59:31.519+0000] {standard_task_runner.py:60} INFO - Started process 1458 to run task
+[2024-11-10T20:59:31.522+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'python_broker', 'get_data', 'manual__2024-11-10T20:56:29.467557+00:00', '--job-id', '1271', '--raw', '--subdir', 'DAGS_FOLDER/python_broker.py', '--cfg-path', '/tmp/tmp8v3pu7o3']
+[2024-11-10T20:59:31.523+0000] {standard_task_runner.py:88} INFO - Job 1271: Subtask get_data
+[2024-11-10T20:59:31.557+0000] {task_command.py:423} INFO - Running <TaskInstance: python_broker.get_data manual__2024-11-10T20:56:29.467557+00:00 [running]> on host 2a2d16a2b1e8
+[2024-11-10T20:59:31.734+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='python_broker' AIRFLOW_CTX_TASK_ID='get_data' AIRFLOW_CTX_EXECUTION_DATE='2024-11-10T20:56:29.467557+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-11-10T20:56:29.467557+00:00'
+[2024-11-10T20:59:31.742+0000] {logging_mixin.py:188} INFO - #########################################################################################
+[2024-11-10T20:59:31.742+0000] {logging_mixin.py:188} INFO - {'Привет': 'Пока'}
+[2024-11-10T20:59:31.743+0000] {logging_mixin.py:188} INFO - #########################################################################################
+[2024-11-10T20:59:31.743+0000] {python.py:202} INFO - Done. Returned value was: None
+[2024-11-10T20:59:31.750+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=python_broker, task_id=get_data, execution_date=20241110T205629, start_date=20241110T205931, end_date=20241110T205931
+[2024-11-10T20:59:31.775+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-11-10T20:59:31.786+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

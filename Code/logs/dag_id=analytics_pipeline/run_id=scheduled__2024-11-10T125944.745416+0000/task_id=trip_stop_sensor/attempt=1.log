@@ -1,0 +1,44 @@
+[2024-11-10T12:59:47.080+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: analytics_pipeline.trip_stop_sensor scheduled__2024-11-10T12:59:44.745416+00:00 [queued]>
+[2024-11-10T12:59:47.086+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: analytics_pipeline.trip_stop_sensor scheduled__2024-11-10T12:59:44.745416+00:00 [queued]>
+[2024-11-10T12:59:47.087+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-11-10T12:59:47.097+0000] {taskinstance.py:2217} INFO - Executing <Task(RabbitMQSensor): trip_stop_sensor> on 2024-11-10 12:59:44.745416+00:00
+[2024-11-10T12:59:47.101+0000] {standard_task_runner.py:60} INFO - Started process 4303 to run task
+[2024-11-10T12:59:47.103+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'analytics_pipeline', 'trip_stop_sensor', 'scheduled__2024-11-10T12:59:44.745416+00:00', '--job-id', '294', '--raw', '--subdir', 'DAGS_FOLDER/analytics_pipeline.py', '--cfg-path', '/tmp/tmpmkvk3d8v']
+[2024-11-10T12:59:47.105+0000] {standard_task_runner.py:88} INFO - Job 294: Subtask trip_stop_sensor
+[2024-11-10T12:59:47.140+0000] {task_command.py:423} INFO - Running <TaskInstance: analytics_pipeline.trip_stop_sensor scheduled__2024-11-10T12:59:44.745416+00:00 [running]> on host 2a2d16a2b1e8
+[2024-11-10T12:59:47.198+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='analytics_pipeline' AIRFLOW_CTX_TASK_ID='trip_stop_sensor' AIRFLOW_CTX_EXECUTION_DATE='2024-11-10T12:59:44.745416+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-11-10T12:59:44.745416+00:00'
+[2024-11-10T12:59:47.205+0000] {base.py:83} INFO - Using connection ID 'RabbitMQ' for task execution.
+[2024-11-10T12:59:47.206+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/pika/connection.py", line 389, in port
+    self._port = int(value)
+TypeError: int() argument must be a string, a bytes-like object or a number, not 'NoneType'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/rabbitmq_provider/sensors/rabbitmq.py", line 32, in execute
+    super().execute(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 265, in execute
+    raise e
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/sensors/base.py", line 247, in execute
+    poke_return = self.poke(context)
+  File "/home/airflow/.local/lib/python3.8/site-packages/rabbitmq_provider/sensors/rabbitmq.py", line 37, in poke
+    message = hook.pull(self.queue_name)
+  File "/home/airflow/.local/lib/python3.8/site-packages/rabbitmq_provider/hooks/rabbitmq.py", line 123, in pull
+    connection = self.get_conn()
+  File "/home/airflow/.local/lib/python3.8/site-packages/rabbitmq_provider/hooks/rabbitmq.py", line 53, in get_conn
+    parameters = pika.ConnectionParameters(
+  File "/home/airflow/.local/lib/python3.8/site-packages/pika/connection.py", line 645, in __init__
+    self.port = port
+  File "/home/airflow/.local/lib/python3.8/site-packages/pika/connection.py", line 391, in port
+    raise TypeError('port must be an int, but got %r' % (value,))
+TypeError: port must be an int, but got None
+[2024-11-10T12:59:47.211+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=analytics_pipeline, task_id=trip_stop_sensor, execution_date=20241110T125944, start_date=20241110T125947, end_date=20241110T125947
+[2024-11-10T12:59:47.220+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 294 for task trip_stop_sensor (port must be an int, but got None; 4303)
+[2024-11-10T12:59:47.235+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-11-10T12:59:47.256+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

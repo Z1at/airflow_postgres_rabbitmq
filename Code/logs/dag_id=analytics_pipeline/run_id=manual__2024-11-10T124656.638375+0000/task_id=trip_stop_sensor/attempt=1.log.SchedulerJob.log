@@ -1,0 +1,1 @@
+[2024-11-10T12:47:04.090+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: analytics_pipeline.trip_stop_sensor manual__2024-11-10T12:46:56.638375+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?
